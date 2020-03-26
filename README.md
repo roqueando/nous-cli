@@ -1,7 +1,6 @@
-nous-cli
-========
+# nous-cli
 
-Une interface en ligne de commande pour nous
+## Une interface en ligne de commande pour nous
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/nous-cli.svg)](https://npmjs.org/package/nous-cli)
@@ -68,3 +67,6 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.3/src/commands/help.ts)_
 <!-- commandsstop -->
+=======
+# nous-cli
+>>>>>>> 79f13dbaf2757a9815eaa62aee617a184c3c127d
