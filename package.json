@@ -1,7 +1,7 @@
 {
   "name": "nous-cli",
   "description": "Une interface en ligne de commande pour nous",
-  "version": "0.1.5",
+  "version": "0.1.9",
   "author": "Vitor Roque",
   "bin": {
     "nous": "./bin/run"
@@ -26,6 +26,7 @@
     "@oclif/dev-cli": "^1",
     "@oclif/test": "^1",
     "@types/chai": "^4",
+    "@types/execa": "^2.0.0",
     "@types/figlet": "^1.2.0",
     "@types/gradient-string": "^1.1.0",
     "@types/mocha": "^5",
