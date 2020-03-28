@@ -8,8 +8,10 @@
 [![License](https://img.shields.io/npm/l/nous-cli.svg)](https://github.com/roqueando/nous-cli/blob/master/package.json)
 
 <!-- toc -->
+* [nous-cli](#nous-cli)
 * [Usage](#usage)
 * [Commands](#commands)
+* [nous-cli](#nous-cli-1)
 <!-- tocstop -->
 # Usage
 <!-- usage -->
@@ -18,7 +20,7 @@ $ npm install -g nous-cli
 $ nous COMMAND
 running command...
 $ nous (-v|--version|version)
-nous-cli/0.0.1 linux-x64 node-v10.19.0
+nous-cli/0.1.4 linux-x64 node-v10.19.0
 $ nous --help [COMMAND]
 USAGE
   $ nous COMMAND
@@ -27,28 +29,26 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`nous hello [FILE]`](#nous-hello-file)
+* [`nous creer`](#nous-creer)
 * [`nous help [COMMAND]`](#nous-help-command)
 
-## `nous hello [FILE]`
+## `nous creer`
 
-describe the command here
+create a nous project
 
 ```
 USAGE
-  $ nous hello [FILE]
+  $ nous creer
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -h, --help          show CLI help
+  --manager=yarn|npm
 
 EXAMPLE
-  $ nous hello
-  hello world from ./src/hello.ts!
+  $ nous creer project_name
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/roqueando/nous-cli/blob/v0.0.1/src/commands/hello.ts)_
+_See code: [src/commands/creer.ts](https://github.com/roqueando/nous-cli/blob/v0.1.4/src/commands/creer.ts)_
 
 ## `nous help [COMMAND]`
 
