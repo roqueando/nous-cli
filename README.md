@@ -20,7 +20,7 @@ $ npm install -g nous-cli
 $ nous COMMAND
 running command...
 $ nous (-v|--version|version)
-nous-cli/0.1.4 linux-x64 node-v10.19.0
+nous-cli/0.1.5 linux-x64 node-v10.19.0
 $ nous --help [COMMAND]
 USAGE
   $ nous COMMAND
@@ -48,7 +48,7 @@ EXAMPLE
   $ nous creer project_name
 ```
 
-_See code: [src/commands/creer.ts](https://github.com/roqueando/nous-cli/blob/v0.1.4/src/commands/creer.ts)_
+_See code: [src/commands/creer.ts](https://github.com/roqueando/nous-cli/blob/v0.1.5/src/commands/creer.ts)_
 
 ## `nous help [COMMAND]`
 
