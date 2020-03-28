@@ -1,17 +1,20 @@
 import {Command, flags} from '@oclif/command'
 import * as ora from 'ora';
 import { ncp } from 'ncp';
-import { existsSync, mkdirSync, writeFileSync, readFileSync  } from 'fs';
+import { existsSync, mkdirSync, writeFileSync, readFileSync, readdirSync  } from 'fs';
+import * as path from 'path';
 import cli from 'cli-ux';
 import * as inquirer from 'inquirer';
-const cfonts = require('cfonts');
-
+//@ts-ignore
+import cfonts = require('cfonts');
+import { projectInstall } from 'pkg-install';
+import * as chalk from 'chalk';
 
 export default class Creer extends Command {
   static description = 'create a nous project'
 
   static examples = [
-    `$ nous creer project_name
+    `$ nous creer
     `,
   ];
 
@@ -46,11 +49,25 @@ export default class Creer extends Command {
     this.log(output.string);
     this.log(subtitle.string);
 
-    const name = await cli.prompt('What is the name of your project');
-    const description = await cli.prompt('And the description');
-    const author = await cli.prompt('Author');
-    const license = await cli.prompt('License');
-    const privateProject = await cli.prompt('Private (true or false)');
+    const name = await cli.prompt(chalk.cyanBright.dim('what is the name of your project'));
+    const description = await cli.prompt(chalk.cyanBright.dim('and the description'));
+    const author = await cli.prompt(chalk.cyanBright.dim('author'));
+    const license = await cli.prompt(chalk.cyanBright.dim('license'));
+    const privateProject = await inquirer.prompt([
+      {
+        name: 'private',
+        message: 'privacy',
+        type: 'list',
+        choices: [
+          {
+            name: 'true',
+          },
+          {
+            name: 'false'
+          }
+        ]
+      }
+    ]);
 
     let manager = flags.manager;
     if(!manager) {
@@ -75,32 +92,37 @@ export default class Creer extends Command {
     const spinner = ora(`création de projet ${name}`).start();
 
     if(!existsSync(`${process.cwd()}/${name}`)) {
-      spinner.text = "création d'un dossier";
+      spinner.text = chalk.magentaBright.dim.bgGrey("création d'un dossier \n");
       mkdirSync(`${process.cwd()}/${name}`);
-      ncp("./src/squelette", `${process.cwd()}/${name}`, err => {
+
+      ncp(path.resolve(__dirname, '../squelette'), `${process.cwd()}/${name}`, async (err: any) => {
         if (err) {
-          spinner.text = "pardon, some error occurs";
+          spinner.text = chalk.bgRed.dim.blackBright("pardon, some error occurs");
           spinner.fail();
           spinner.stop();
-          return;
+          this.error(err.toString());
         }
-        
-        let file = JSON.parse(readFileSync(`${process.cwd()}/${name}/package.json`, 'utf8')); 
+
+        let file = JSON.parse(readFileSync(`${process.cwd()}/${name}/package.json`, 'utf8'));
         file.name = name;
         file.description = description;
         file.author = author;
         file.license = license;
-        file.private = privateProject;
+        file.private = privateProject.private === 'true' ? true : false;
 
         writeFileSync(`${process.cwd()}/${name}/package.json`, JSON.stringify(file));
-        spinner.text = "projet créé avec succès ✔️";
+
+        //@ts-ignore
+        const {stdout} = await projectInstall({ prefer: manager, cwd: `${process.cwd()}/${name}`});
+
+        this.log(stdout);
+        spinner.text = chalk.bgGreenBright.dim.blackBright("projet créé avec succès");
         spinner.succeed();
         spinner.stop();
-        return;
       });
 
     } else {
-      spinner.text = "pardon, that folder already exists";
+      spinner.text = chalk.bgRed.dim.blackBright("pardon, that folder already exists");
       spinner.fail();
       spinner.stop();
     }
