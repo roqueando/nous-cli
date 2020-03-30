@@ -112,7 +112,7 @@ export default class Creer extends Command {
         file.license = license;
         file.private = privateProject.private === 'true' ? true : false;
 
-        writeFileSync(`${process.cwd()}/${name}/package.json`, JSON.stringify(file));
+        writeFileSync(`${process.cwd()}/${name}/package.json`, JSON.stringify(file, null, 2));
 
         //@ts-ignore
         const {stdout} = await projectInstall({ prefer: manager, cwd: `${process.cwd()}/${name}`});
