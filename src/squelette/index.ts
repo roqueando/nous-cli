@@ -1,3 +1,4 @@
-import Application from './src/application';
+import { Manager } from '@roqueando/nous';
 
-(new Application).run();
+const manager = new Manager(8080);
+manager.run();

@@ -1,7 +1,7 @@
 {
   "name": "nous-cli",
   "description": "Une interface en ligne de commande pour nous",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "author": "Vitor Roque",
   "bin": {
     "nous": "./bin/run"
@@ -11,10 +11,13 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^2",
+    "@roqueando/nous": "^0.3.1",
     "@types/inquirer": "^6.5.0",
+    "boxen": "^4.2.0",
     "cfonts": "^2.8.1",
     "chalk": "^3.0.0",
     "cli-ux": "^5.4.5",
+    "execa": "^4.0.0",
     "figlet": "^1.3.0",
     "inquirer": "^7.1.0",
     "ncp": "^2.0.0",
@@ -63,7 +66,15 @@
     "bin": "nous",
     "plugins": [
       "@oclif/plugin-help"
-    ]
+    ],
+    "topics": {
+      "monter": {
+        "description": "Up all services and manager"
+      },
+      "monter:service": {
+        "description": "Up a independent service"
+      }
+    }
   },
   "repository": "roqueando/nous-cli",
   "scripts": {
