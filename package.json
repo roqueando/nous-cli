@@ -11,7 +11,7 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^2",
-    "@roqueando/nous": "^0.2.11",
+    "@roqueando/nous": "^0.3.1",
     "@types/inquirer": "^6.5.0",
     "boxen": "^4.2.0",
     "cfonts": "^2.8.1",
@@ -48,24 +48,23 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "files": [
-    "/bin",
-    "/lib",
-    "/npm-shrinkwrap.json",
-    "/oclif.manifest.json"
-  ],
+  "files": ["/bin", "/lib", "/npm-shrinkwrap.json", "/oclif.manifest.json"],
   "homepage": "https://github.com/roqueando/nous-cli",
-  "keywords": [
-    "oclif"
-  ],
+  "keywords": ["oclif"],
   "license": "MIT",
   "main": "lib/index.js",
   "oclif": {
     "commands": "./lib/commands",
     "bin": "nous",
-    "plugins": [
-      "@oclif/plugin-help"
-    ]
+    "plugins": ["@oclif/plugin-help"],
+    "topics": {
+      "monter": {
+        "description": "Up all services and manager"
+      },
+      "monter:service": {
+        "description": "Up a independent service"
+      }
+    }
   },
   "repository": "roqueando/nous-cli",
   "scripts": {

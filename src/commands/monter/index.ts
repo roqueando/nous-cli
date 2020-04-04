@@ -1,5 +1,5 @@
 import {Command, flags} from '@oclif/command'
-import { Messenger, Manager, Service } from '@roqueando/nous';
+import { Emitter, Messenger, Manager, Service } from '@roqueando/nous';
 import * as chalk from 'chalk';
 import * as boxen from 'boxen';
 //@ts-ignore
@@ -49,7 +49,6 @@ export default class Monter extends Command {
     });
 
     manager.run();
-    manager.upServicesListener();
 
     let services: Array<Service> = [];
     const files = fs.readdirSync(`${process.cwd()}/services`);
@@ -69,6 +68,5 @@ export default class Monter extends Command {
       {padding: 3}
     );
     this.log(boxer);
-    console.log(Messenger.getInstance());
   }
 }

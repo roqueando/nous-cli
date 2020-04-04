@@ -105,6 +105,10 @@ export default class Creer extends Command {
           this.error(err.toString());
         }
 
+        spinner.text = chalk.magentaBright.dim.bgGrey("dossier créé\n\n");
+      });
+      
+      if(existsSync(`${process.cwd()}/${name}/package.json`)) {
         let file = JSON.parse(readFileSync(`${process.cwd()}/${name}/package.json`, 'utf8'));
         file.name = name;
         file.description = description;
@@ -113,16 +117,15 @@ export default class Creer extends Command {
         file.private = privateProject.private === 'true' ? true : false;
 
         writeFileSync(`${process.cwd()}/${name}/package.json`, JSON.stringify(file, null, 2));
+      }
 
-        //@ts-ignore
-        const {stdout} = await projectInstall({ prefer: manager, cwd: `${process.cwd()}/${name}`});
+      //@ts-ignore
+      const {stdout} = await projectInstall({ prefer: manager, cwd: `${process.cwd()}/${name}`});
 
-        this.log(stdout);
-        spinner.text = chalk.bgGreenBright.dim.blackBright("projet créé avec succès");
-        spinner.succeed();
-        spinner.stop();
-      });
-
+      this.log(stdout);
+      spinner.text = chalk.bgGreenBright.dim.blackBright("terminé! 😄");
+      spinner.succeed();
+      spinner.stop();
     } else {
       spinner.text = chalk.bgRed.dim.blackBright("pardon, that folder already exists");
       spinner.fail();

@@ -12,7 +12,7 @@
     "test": "jest --runInBand"
   },
   "dependencies": {
-    "@roqueando/nous": "^0.2.11"
+    "@roqueando/nous": "^0.3.2"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.8.3",
