@@ -1,7 +1,7 @@
 import {Command, flags} from '@oclif/command'
-import { Emitter, Messenger, Manager, Service } from '@roqueando/nous';
-import * as chalk from 'chalk';
-import * as boxen from 'boxen';
+import { Manager, Service } from '@roqueando/nous';
+import chalk from 'chalk';
+import boxen from 'boxen';
 //@ts-ignore
 import ansiAlign = require('ansi-align');
 //@ts-ignore

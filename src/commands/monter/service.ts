@@ -1,8 +1,8 @@
 import {Command, flags} from '@oclif/command'
 import {readdirSync} from 'fs';
 import {Service} from '@roqueando/nous';
-import * as chalk from 'chalk';
-import * as boxen from 'boxen';
+import chalk from 'chalk';
+import boxen from 'boxen';
 const cfonts = require('cfonts');
 
 export default class MonterService extends Command {

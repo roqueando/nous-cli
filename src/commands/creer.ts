@@ -1,10 +1,10 @@
 import {Command, flags} from '@oclif/command'
-import * as ora from 'ora';
+import ora from 'ora';
 import { ncp } from 'ncp';
 import { existsSync, mkdirSync, writeFileSync, readFileSync, readdirSync  } from 'fs';
-import * as path from 'path';
+import path from 'path';
 import cli from 'cli-ux';
-import * as inquirer from 'inquirer';
+import inquirer from 'inquirer';
 //@ts-ignore
 import cfonts = require('cfonts');
 //@ts-nocheck
@@ -106,7 +106,7 @@ export default class Creer extends Command {
 
         spinner.text = chalk.magentaBright.dim.bgGrey("dossier créé\n\n");
       });
-      
+
       if(existsSync(`${process.cwd()}/${name}/package.json`)) {
         let file = JSON.parse(readFileSync(`${process.cwd()}/${name}/package.json`, 'utf8'));
         file.name = name;
