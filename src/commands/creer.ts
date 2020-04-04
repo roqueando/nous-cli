@@ -7,7 +7,6 @@ import cli from 'cli-ux';
 import * as inquirer from 'inquirer';
 //@ts-ignore
 import cfonts = require('cfonts');
-//@ts-ignore
 //@ts-nocheck
 import { projectInstall } from 'pkg-install';
 import * as chalk from 'chalk';
