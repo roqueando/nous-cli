@@ -56,7 +56,7 @@ export default class Monter extends Command {
     files.forEach((item: string) => {
       const file = require(`${process.cwd()}/services/${item}`);
       const [className] = item.split('.');
-      const service: Service = new file.default();
+      const service = new file();
       service.setName(className);
       service.run();
       services.push(service);
