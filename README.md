@@ -20,7 +20,7 @@ $ npm install -g nous-cli
 $ nous COMMAND
 running command...
 $ nous (-v|--version|version)
-nous-cli/0.1.9 linux-x64 node-v10.19.0
+nous-cli/0.2.2 linux-x64 node-v10.19.0
 $ nous --help [COMMAND]
 USAGE
   $ nous COMMAND
@@ -31,6 +31,8 @@ USAGE
 <!-- commands -->
 * [`nous creer`](#nous-creer)
 * [`nous help [COMMAND]`](#nous-help-command)
+* [`nous monter [PORT]`](#nous-monter-port)
+* [`nous monter:service [SERVICENAME]`](#nous-monterservice-servicename)
 
 ## `nous creer`
 
@@ -48,7 +50,7 @@ EXAMPLE
   $ nous creer
 ```
 
-_See code: [src/commands/creer.ts](https://github.com/roqueando/nous-cli/blob/v0.1.9/src/commands/creer.ts)_
+_See code: [src/commands/creer.ts](https://github.com/roqueando/nous-cli/blob/v0.2.2/src/commands/creer.ts)_
 
 ## `nous help [COMMAND]`
 
@@ -66,6 +68,40 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.3/src/commands/help.ts)_
+
+## `nous monter [PORT]`
+
+up manager and all services
+
+```
+USAGE
+  $ nous monter [PORT]
+
+OPTIONS
+  -h, --help  show CLI help
+
+EXAMPLE
+  $ nous monter 8080
+```
+
+_See code: [src/commands/monter/index.ts](https://github.com/roqueando/nous-cli/blob/v0.2.2/src/commands/monter/index.ts)_
+
+## `nous monter:service [SERVICENAME]`
+
+Up independent service
+
+```
+USAGE
+  $ nous monter:service [SERVICENAME]
+
+OPTIONS
+  -h, --help  show CLI help
+
+EXAMPLE
+  $ nous monter:service Example
+```
+
+_See code: [src/commands/monter/service.ts](https://github.com/roqueando/nous-cli/blob/v0.2.2/src/commands/monter/service.ts)_
 <!-- commandsstop -->
 =======
 # nous-cli
