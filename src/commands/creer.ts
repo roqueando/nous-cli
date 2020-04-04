@@ -9,7 +9,7 @@ import inquirer from 'inquirer';
 import cfonts = require('cfonts');
 //@ts-nocheck
 import { projectInstall } from 'pkg-install';
-import * as chalk from 'chalk';
+import chalk from 'chalk';
 
 export default class Creer extends Command {
   static description = 'create a nous project'
