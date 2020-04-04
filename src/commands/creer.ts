@@ -37,10 +37,10 @@ export default class Creer extends Command {
     const output = cfonts.render('nous', {
       colors: ['white'],
       gradient: ["#DAE2F8", "#D6A4A4"],
-      space: false
+      space: true
     });
 
-    const subtitle = cfonts.render('Un orchestre parmi nous', {
+    const subtitle = cfonts.render('Un orchestre\nparmi nous', {
       font: 'tiny',
       colors: ['#B06AB3'],
       gradient: ["#636FA4", "#E8CBC0"],
