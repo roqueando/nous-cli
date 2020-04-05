@@ -1,7 +1,7 @@
 {
   "name": "nous-cli",
   "description": "Une interface en ligne de commande pour nous",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "author": "Vitor Roque",
   "bin": {
     "nous": "./bin/run"
@@ -79,7 +79,7 @@
   "repository": "roqueando/nous-cli",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
-    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "prepack": "rm -rf lib && tsc -b && cp ./src/squelette/package.json ./lib/squelette/package.json && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md"
   },
