@@ -1,7 +1,7 @@
 {
   "name": "nous-cli",
   "description": "Une interface en ligne de commande pour nous",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "author": "Vitor Roque",
   "bin": {
     "nous": "./bin/run"
