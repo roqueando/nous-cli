@@ -41,7 +41,7 @@ export default class MonterService extends Command {
       const [name] = item.split('.');
       if(args.serviceName === name) {
         const file = require(`${process.cwd()}/services/${item}`);
-        const service: Service = new file.default();
+        const service = new file;
         service.setName(name);
         service.run();
         servicName = service.name;
