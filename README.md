@@ -20,7 +20,7 @@ $ npm install -g nous-cli
 $ nous COMMAND
 running command...
 $ nous (-v|--version|version)
-nous-cli/0.2.8 linux-x64 node-v10.19.0
+nous-cli/0.2.9 linux-x64 node-v10.19.0
 $ nous --help [COMMAND]
 USAGE
   $ nous COMMAND
@@ -50,7 +50,7 @@ EXAMPLE
   $ nous creer
 ```
 
-_See code: [src/commands/creer.ts](https://github.com/roqueando/nous-cli/blob/v0.2.8/src/commands/creer.ts)_
+_See code: [src/commands/creer.ts](https://github.com/roqueando/nous-cli/blob/v0.2.9/src/commands/creer.ts)_
 
 ## `nous help [COMMAND]`
 
@@ -84,7 +84,7 @@ EXAMPLE
   $ nous monter 8080
 ```
 
-_See code: [src/commands/monter/index.ts](https://github.com/roqueando/nous-cli/blob/v0.2.8/src/commands/monter/index.ts)_
+_See code: [src/commands/monter/index.ts](https://github.com/roqueando/nous-cli/blob/v0.2.9/src/commands/monter/index.ts)_
 
 ## `nous monter:service [SERVICENAME]`
 
@@ -101,7 +101,7 @@ EXAMPLE
   $ nous monter:service Example
 ```
 
-_See code: [src/commands/monter/service.ts](https://github.com/roqueando/nous-cli/blob/v0.2.8/src/commands/monter/service.ts)_
+_See code: [src/commands/monter/service.ts](https://github.com/roqueando/nous-cli/blob/v0.2.9/src/commands/monter/service.ts)_
 <!-- commandsstop -->
 =======
 # nous-cli
