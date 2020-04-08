@@ -7,6 +7,8 @@ import ansiAlign = require('ansi-align');
 //@ts-ignore
 import cfonts = require('cfonts');
 import * as fs from 'fs';
+import {spawn} from 'child_process';
+import * as path from 'path';
 
 export default class Monter extends Command {
 
@@ -40,13 +42,9 @@ export default class Monter extends Command {
   }
 
   async run() {
+    /*
     const { args } = this.parse(Monter);
     const manager = new Manager(args.port ? args.port : 8080);
-    const output = cfonts.render('nous', {
-      colors: ['white'],
-      gradient: ["#DAE2F8", "#D6A4A4"],
-      space: false,
-    });
 
     manager.run();
 
@@ -61,12 +59,24 @@ export default class Monter extends Command {
       service.run();
       services.push(service);
     });
+    this.log(boxer);
+    */
+
+    const output = cfonts.render('nous', {
+      colors: ['white'],
+      gradient: ["#DAE2F8", "#D6A4A4"],
+      space: false,
+    });
     const boxer = boxen(
       output.string +
-        "\n\n" + this.logManager(args.port ? args.port : 8080) +
-        this.logServices(services),
+        "\n\n" + chalk.dim.bgBlackBright.magentaBright("      starting manager and services      "),
       {padding: 3}
     );
     this.log(boxer);
+    spawn('node', [path.resolve(__dirname + '../../../upMonter.js')], {
+      stdio: 'ignore',
+      detached: true
+    }).unref();
+
   }
 }
