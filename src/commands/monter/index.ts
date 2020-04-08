@@ -42,25 +42,8 @@ export default class Monter extends Command {
   }
 
   async run() {
-    /*
+
     const { args } = this.parse(Monter);
-    const manager = new Manager(args.port ? args.port : 8080);
-
-    manager.run();
-
-    let services: Array<Service> = [];
-    const files = fs.readdirSync(`${process.cwd()}/services`);
-
-    files.forEach((item: string) => {
-      const file = require(`${process.cwd()}/services/${item}`);
-      const [className] = item.split('.');
-      const service = new file();
-      service.setName(className);
-      service.run();
-      services.push(service);
-    });
-    this.log(boxer);
-    */
 
     const output = cfonts.render('nous', {
       colors: ['white'],
