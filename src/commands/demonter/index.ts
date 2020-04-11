@@ -26,7 +26,9 @@ export default class Demonter extends Command {
   static args = [
     {
       name: 'port',
-      key: 'key'
+    },
+    {
+      name: 'key'
     }
   ];
 
@@ -50,7 +52,7 @@ export default class Demonter extends Command {
         "\n\n" + chalk.dim.bgBlackBright.magentaBright("      closing manager and services      "),
       {padding: 3}
     );
-    
+
     client.on('data', payload => {
       if(payload.toString() === 'OK') {
         const pid = fs.readFileSync(path.resolve(__dirname + '../../../../tmp/main.pid'), 'utf8');
