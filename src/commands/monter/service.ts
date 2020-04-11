@@ -6,6 +6,7 @@ import boxen from 'boxen';
 const cfonts = require('cfonts');
 import {spawn} from 'child_process';
 import * as path from 'path';
+import * as fs from 'fs';
 
 export default class MonterService extends Command {
 
@@ -34,9 +35,17 @@ export default class MonterService extends Command {
 
     let service = chalk.dim.bgBlackBright.magentaBright(`      starting ${args.serviceName}     `);
     this.log(boxen(output.string + "\n\n" + service, { padding: 3  }));
-    spawn('node', [path.resolve(__dirname + '../../../upService.js'), args.serviceName], {
+    let node = spawn('node', [path.resolve(__dirname + '../../../upService.js'), args.serviceName], {
       stdio: 'ignore',
       detached: true
-    }).unref();
+    });
+
+    const FILENAME = path.resolve(__dirname + `../../../../tmp/${args.serviceName}.pid`);
+    if(fs.existsSync(FILENAME)) {
+      fs.appendFileSync(FILENAME, `\n${node.pid}`);
+    } else {
+      fs.writeFileSync(path.resolve(__dirname + `../../../../tmp/${args.serviceName}.pid`), node.pid);
+    }
+    node.unref();
   }
 }

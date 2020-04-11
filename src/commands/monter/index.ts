@@ -56,10 +56,12 @@ export default class Monter extends Command {
       {padding: 3}
     );
     this.log(boxer);
-    spawn('node', [path.resolve(__dirname + '../../../upMonter.js')], {
+    let ls = spawn('node', [path.resolve(__dirname + '../../../upMonter.js')], {
       stdio: 'ignore',
       detached: true
-    }).unref();
-
+    });
+    
+    fs.writeFileSync(path.resolve(__dirname + '../../../../tmp/main.pid'), ls.pid);
+    ls.unref();
   }
 }
