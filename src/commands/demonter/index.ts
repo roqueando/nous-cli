@@ -36,10 +36,11 @@ export default class Demonter extends Command {
     const { args, flags } = this.parse(Demonter);
     const client = createConnection({ port: args.port ? args.port : 8080  });
 
+    const token = new Token(args.key ? args.key : null);
     client.write(JSON.stringify({
       action: 'down',
       payload: {
-        from: new Token(args.key ? args.key : null).getToken(),
+        from: token.getToken(),
       }
     }));
     const output = cfonts.render('nous', {
@@ -55,7 +56,7 @@ export default class Demonter extends Command {
 
     client.on('data', payload => {
       if(payload.toString() === 'OK') {
-        const pid = fs.readFileSync(path.resolve(__dirname + '../../../../tmp/main.pid'), 'utf8');
+        const pid = fs.readFileSync(path.resolve('/tmp/main.pid'), 'utf8');
         process.kill(parseInt(pid), 'SIGTERM');
       }
     });

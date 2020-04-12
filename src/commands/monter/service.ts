@@ -40,11 +40,11 @@ export default class MonterService extends Command {
       detached: true
     });
 
-    const FILENAME = path.resolve(__dirname + `../../../../tmp/${args.serviceName}.pid`);
+    const FILENAME = path.resolve(`/tmp/${args.serviceName}.pid`);
     if(fs.existsSync(FILENAME)) {
       fs.appendFileSync(FILENAME, `\n${node.pid}`);
     } else {
-      fs.writeFileSync(path.resolve(__dirname + `../../../../tmp/${args.serviceName}.pid`), node.pid);
+      fs.writeFileSync(FILENAME, node.pid);
     }
     node.unref();
   }

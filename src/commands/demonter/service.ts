@@ -43,7 +43,7 @@ export default class DemonterService extends Command {
     );
 
 
-    const pid = fs.readFileSync(path.resolve(__dirname + `../../../../tmp/${args.serviceName}.pid`), 'utf8');
+    const pid = fs.readFileSync(path.resolve(`/tmp/${args.serviceName}.pid`), 'utf8');
     const pids = pid.split('\n');
 
     this.log(boxer);
