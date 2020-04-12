@@ -206,10 +206,10 @@
   dependencies:
     fancy-test "^1.4.3"
 
-"@roqueando/nous@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@roqueando/nous/-/nous-0.3.1.tgz#ae86a11bf0cefffba8124874996e97331aed1f76"
-  integrity sha512-YS/alxCEPqFYZAhWlPHeZQPDEp4Jk5bVOo+yzAClxLZtpDTYtBg54RIght/XS2gBiHfUISh9C20fkeAoAYXn/Q==
+"@roqueando/nous@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@roqueando/nous/-/nous-0.5.0.tgz#8fc9be675f3d4b50f65dbc417eb1e1171cc59043"
+  integrity sha512-1BlcbOnjyddlzkJHGV+JGwgDXfgY2Kl4Rjd+YhQHPMBMuACIDLIZY+pkAeI2WHl5VDCq6tI4JhFnuzGZbfk9qA==
 
 "@types/chai@*", "@types/chai@^4":
   version "4.2.11"
