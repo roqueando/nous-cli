@@ -55,7 +55,7 @@ export default class Demonter extends Command {
 
     client.on('data', payload => {
       if(payload.toString() === 'OK') {
-        const pid = fs.readFileSync(path.resolve(__dirname + '../../../../tmp/main.pid'), 'utf8');
+        const pid = fs.readFileSync(path.resolve('/tmp/main.pid'), 'utf8');
         process.kill(parseInt(pid), 'SIGTERM');
       }
     });
