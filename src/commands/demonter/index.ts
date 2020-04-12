@@ -1,5 +1,5 @@
 import {Command, flags} from '@oclif/command'
-import {Token} from '@roqueando/nous';
+import Nous from '@roqueando/nous';
 import {createConnection} from 'net';
 import chalk from 'chalk';
 import boxen from 'boxen';
@@ -36,10 +36,11 @@ export default class Demonter extends Command {
     const { args, flags } = this.parse(Demonter);
     const client = createConnection({ port: args.port ? args.port : 8080  });
 
+    const token = new Nous.Token(args.key ? args.key : null);
     client.write(JSON.stringify({
       action: 'down',
       payload: {
-        from: new Token(args.key ? args.key : null).getToken(),
+        from: token.getToken(),
       }
     }));
     const output = cfonts.render('nous', {
