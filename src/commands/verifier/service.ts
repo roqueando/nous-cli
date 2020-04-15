@@ -49,7 +49,6 @@ export default class VerifierService extends Command {
 
     client.on('data', payload => {
       const obj = JSON.parse(payload.toString());
-      console.log(obj);
       const table = new Table({
         head:[
           chalk.dim.magentaBright('NAME'),
