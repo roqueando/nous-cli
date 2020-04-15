@@ -1,5 +1,4 @@
 import {Command, flags} from '@oclif/command'
-import {Token} from '@roqueando/nous';
 import {createConnection} from 'net';
 import chalk from 'chalk';
 import boxen from 'boxen';
@@ -43,26 +42,29 @@ export default class Verifier extends Command {
 
     client.on('data', payload => {
       const obj = JSON.parse(payload.toString());
+      console.log(obj.services[0]);
       const table = new Table({
         head:[
           chalk.dim.magentaBright('ID'),
           chalk.dim.magentaBright('NAME'),
           chalk.dim.magentaBright('PORT'),
+          chalk.dim.magentaBright('ADDR')
         ],
-        colWidths: [15, 10, 10]
+        colWidths: [15, 10, 10, 10]
       });
       const services = obj.services.map((item: any) => {
         return [
           item.id,
           item.name,
-          item.port
+          item.port,
         ]
       });
       table.push(
         [
           obj.manager.id,
           obj.manager.name,
-          obj.manager.port
+          obj.manager.port,
+          obj.manager.host.address
         ],
         ...services
       );
