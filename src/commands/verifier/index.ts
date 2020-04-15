@@ -42,7 +42,6 @@ export default class Verifier extends Command {
 
     client.on('data', payload => {
       const obj = JSON.parse(payload.toString());
-      console.log(obj.services[0]);
       const table = new Table({
         head:[
           chalk.dim.magentaBright('ID'),
@@ -53,10 +52,12 @@ export default class Verifier extends Command {
         colWidths: [15, 10, 10, 10]
       });
       const services = obj.services.map((item: any) => {
+        const host = JSON.parse(item.host);
         return [
           item.id,
           item.name,
           item.port,
+          host.address
         ]
       });
       table.push(
