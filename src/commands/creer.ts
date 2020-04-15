@@ -104,19 +104,19 @@ export default class Creer extends Command {
           this.error(err.toString());
         }
 
+        if(existsSync(`${process.cwd()}/${name}/package.json`)) {
+          let file = JSON.parse(readFileSync(`${process.cwd()}/${name}/package.json`, 'utf8'));
+          file.name = name;
+          file.description = description;
+          file.author = author;
+          file.license = license;
+          file.private = privateProject.private === 'true' ? true : false;
+
+          writeFileSync(`${process.cwd()}/${name}/package.json`, JSON.stringify(file, null, 2));
+        }
+
         spinner.text = chalk.magentaBright.dim.bgGrey("dossier créé\n\n");
       });
-
-      if(existsSync(`${process.cwd()}/${name}/package.json`)) {
-        let file = JSON.parse(readFileSync(`${process.cwd()}/${name}/package.json`, 'utf8'));
-        file.name = name;
-        file.description = description;
-        file.author = author;
-        file.license = license;
-        file.private = privateProject.private === 'true' ? true : false;
-
-        writeFileSync(`${process.cwd()}/${name}/package.json`, JSON.stringify(file, null, 2));
-      }
 
       //@ts-ignore
       const {stdout} = await projectInstall({ prefer: manager, cwd: `${process.cwd()}/${name}`});
