@@ -20,7 +20,7 @@ $ npm install -g nous-cli
 $ nous COMMAND
 running command...
 $ nous (-v|--version|version)
-nous-cli/0.4.5 linux-x64 node-v10.19.0
+nous-cli/0.4.6 linux-x64 node-v10.19.0
 $ nous --help [COMMAND]
 USAGE
   $ nous COMMAND
